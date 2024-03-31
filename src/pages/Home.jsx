@@ -14,17 +14,17 @@ import BarChart from "../components/BarChart";
 import Web3 from "web3";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {coinData} from "../data/coinData"
+import { coinData } from "../data/coinData";
 
 const Home = () => {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
   const [sidebar, setSidebar] = useState(true);
 
-  // useEffect(() => {
-  //   // Get 10 Coins
-  //   getData();
-  // }, []);
+  useEffect(() => {
+    // Get 10 Coins
+    getData();
+  }, []);
 
   const getData = () => {
     setLoading(true);
@@ -166,7 +166,7 @@ const Home = () => {
           </div>
         </div>
         {/* Assets  */}
-        <div className={`w-full ${sidebar ? 'xl:w-auto' : 'xl:w-full'}`}>
+        <div className={`w-full ${sidebar ? "xl:w-auto" : "xl:w-full"}`}>
           <div className="w-full flex justify-between">
             <h2 className="text-[20px] font-semibold my-4">Assets</h2>
             <span className="flex items-center gap-[2px]">
@@ -177,9 +177,11 @@ const Home = () => {
             </span>
           </div>
           <div className="h-[200px] w-auto xl:w-full rounded-md overflow-x-scroll bg-gray-800 flex gap-[15px] no-scrollbar">
-            {coinData.map((coin) => (
-              <CryptoCard key={coin.id} coin={coin} />
-            ))}
+            {coins.length > 0
+              ? coins.map((coin) => <CryptoCard key={coin.id} coin={coin} />)
+              : coinData.map((coin) => (
+                  <CryptoCard key={coin.id} coin={coin} />
+                ))}
           </div>
         </div>
         {/* Blogs  */}
