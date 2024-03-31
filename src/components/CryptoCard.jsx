@@ -5,7 +5,7 @@ const CryptoCard = ({ coin }) => {
   return (
     <div className="min-w-[200px] min-h-[200px] bg-gray-600 rounded-md p-2 flex flex-col gap-[10px] justify-between">
       <div className="flex justify-between items-center">
-        <div className="w-10 h-10 bg-red-500 rounded-full">
+        <div className="w-10 h-10 bg-white rounded-full">
           <img src={coin.image} alt="" />
         </div>
         <span className="font-bold text-[18px]">

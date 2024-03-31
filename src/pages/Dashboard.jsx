@@ -3,7 +3,7 @@ import Home from './Home'
 
 const Dashboard = () => {
   return (
-    <div className='w-full'>
+    <div className=''>
       <Home />
     </div>
   )

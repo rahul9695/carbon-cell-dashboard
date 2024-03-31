@@ -1,11 +1,11 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
-import { populationData } from "../data/populationData";
+// import { populationData } from "../data/populationData";
 import LineChart from "../components/LineChart";
 import DoughnutChart from "../components/DoughnutChart";
 import recentPostImg from "../assets/recentPost.png";
 import CryptoCard from "../components/CryptoCard";
-import { getCoinData } from "../functions/getCoinData";
+// import { getCoinData } from "../functions/getCoinData";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
@@ -14,6 +14,7 @@ import BarChart from "../components/BarChart";
 import Web3 from "web3";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {coinData} from "../data/coinData"
 
 const Home = () => {
   const [coins, setCoins] = useState([]);
@@ -21,7 +22,7 @@ const Home = () => {
   const [sidebar, setSidebar] = useState(true);
 
   // useEffect(() => {
-  //   // Get 100 Coins
+  //   // Get 10 Coins
   //   getData();
   // }, []);
 
@@ -83,7 +84,7 @@ const Home = () => {
       >
         <Sidebar sidebar={sidebar} sideBarToggle={sideBarToggle} />
       </div>
-      <div className="flex flex-col p-4 grow text-white">
+      <div className="flex relative w-[80%] flex-col p-4 grow text-white">
         {/* Navbar */}
         <div className={`${sidebar ? "md:hidden" : "flex"}`}>
           <Navbar sideBarToggle={sideBarToggle} />
@@ -165,8 +166,8 @@ const Home = () => {
           </div>
         </div>
         {/* Assets  */}
-        <div className="w-full">
-          <div className="flex justify-between">
+        <div className={`w-full ${sidebar ? 'xl:w-auto' : 'xl:w-full'}`}>
+          <div className="w-full flex justify-between">
             <h2 className="text-[20px] font-semibold my-4">Assets</h2>
             <span className="flex items-center gap-[2px]">
               Today{" "}
@@ -175,10 +176,10 @@ const Home = () => {
               </div>
             </span>
           </div>
-          <div className="h-[200px] w-full rounded-md overflow-scroll bg-gray-800 flex gap-[15px] no-scrollbar">
-            {/* {coins.map((coin) => (
+          <div className="h-[200px] w-auto xl:w-full rounded-md overflow-x-scroll bg-gray-800 flex gap-[15px] no-scrollbar">
+            {coinData.map((coin) => (
               <CryptoCard key={coin.id} coin={coin} />
-            ))} */}
+            ))}
           </div>
         </div>
         {/* Blogs  */}

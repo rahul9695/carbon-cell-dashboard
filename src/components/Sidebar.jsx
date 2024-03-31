@@ -12,6 +12,7 @@ import {
   PhoneCall,
   Search,
   Settings,
+  User,
   Wallet,
 } from "lucide-react";
 import React from "react";
@@ -87,7 +88,8 @@ const Sidebar = ({ sideBarToggle, sidebar }) => {
             onClick={() => handleItemClick("assets")}
           >
             <BriefcaseBusiness size={20} />
-            {sidebar ? <span className="">Assets</span> : ""}          </div>
+            {sidebar ? <span className="">Assets</span> : ""}{" "}
+          </div>
           <div
             className={`flex align-items gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
               activeItem === "trade"
@@ -108,7 +110,8 @@ const Sidebar = ({ sideBarToggle, sidebar }) => {
             onClick={() => handleItemClick("history")}
           >
             <History size={20} />
-            {sidebar ? <span className="">History</span> : ""}          </div>
+            {sidebar ? <span className="">History</span> : ""}{" "}
+          </div>
           <div
             className={`flex align-items gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
               activeItem === "wallet"
@@ -126,7 +129,9 @@ const Sidebar = ({ sideBarToggle, sidebar }) => {
         <div className="flex flex-col gap-[2px]">
           <div className="flex justify-between gap-[10px] items-center">
             <div
-              className={`flex items-center ${sidebar ? "" : "justify-center"} grow gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
+              className={`flex items-center ${
+                sidebar ? "" : "justify-center"
+              } grow gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
                 activeItem === "notifications"
                   ? "text-green-400 font-bold bg-gray-700"
                   : ""
@@ -136,10 +141,16 @@ const Sidebar = ({ sideBarToggle, sidebar }) => {
               <BellRing size={20} />
               {sidebar ? <span className="">Notifications</span> : ""}
             </div>
-            {sidebar ? (<div className="bg-green-600 rounded-md p-1 h-max">12</div>) : ""}
+            {sidebar ? (
+              <div className="bg-green-600 rounded-md p-1 h-max">12</div>
+            ) : (
+              ""
+            )}
           </div>
           <div
-            className={`flex items-center ${sidebar ? "" : "justify-center"} grow gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
+            className={`flex items-center ${
+              sidebar ? "" : "justify-center"
+            } grow gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
               activeItem === "support"
                 ? "text-green-400 font-bold bg-gray-700"
                 : ""
@@ -150,7 +161,9 @@ const Sidebar = ({ sideBarToggle, sidebar }) => {
             {sidebar ? <span className="">Support</span> : ""}
           </div>
           <div
-            className={`flex items-center ${sidebar ? "" : "justify-center"} grow gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
+            className={`flex items-center ${
+              sidebar ? "" : "justify-center"
+            } grow gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
               activeItem === "settings"
                 ? "text-green-400 font-bold bg-gray-700"
                 : ""
@@ -161,8 +174,14 @@ const Sidebar = ({ sideBarToggle, sidebar }) => {
             {sidebar ? <span className="">Settings</span> : ""}
           </div>
         </div>
-        <div className=" flex items-center justify-center gap-[10px] bg-gray-500 p-3 rounded-lg cursor-pointer">
-          <div className={`${sidebar ? "min-w-10 min-h-10" : "min-w-6 min-h-6"} rounded-full bg-red-500`}></div>
+        <div className={`flex items-center justify-center gap-[10px] ${sidebar ? "bg-gray-500" : ""} p-3 rounded-lg cursor-pointer`}>
+          <div
+            className={`${
+              sidebar ? "min-w-10 min-h-10" : "min-w-7 min-h-7"
+            } rounded-full flex justify-center items-center bg-yellow-500`}
+          >
+            <User />
+          </div>
           {sidebar ? (
             <div>
               <h4 className="font-semibold">Rahul Meena</h4>
