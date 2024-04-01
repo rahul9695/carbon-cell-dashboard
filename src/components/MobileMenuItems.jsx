@@ -20,7 +20,12 @@ import {
 import React from "react";
 import carbonCellLogo from "../assets/carbonCellLogo.png";
 
-const MobileMenuItems = ({ sideBarToggle, sidebar, toggleMobileMenu, mobileMenu}) => {
+const MobileMenuItems = ({
+  sideBarToggle,
+  sidebar,
+  toggleMobileMenu,
+  mobileMenu,
+}) => {
   const [activeItem, setActiveItem] = useState("home");
 
   const handleItemClick = (itemName) => {
@@ -220,13 +225,13 @@ const MobileMenuItems = ({ sideBarToggle, sidebar, toggleMobileMenu, mobileMenu}
             ""
           )}
         </div>
-        <div className="text-[12px] cursor-pointer flex items-center gap-[5px] mt-[-15px] bg-red-500 w-max px-2 p-1 mx-auto rounded-md"
-        onClick={toggleMobileMenu}>
-          {sidebar ? <button>
-            Close
-          </button> : ""}
+        <div
+          className="text-[12px] cursor-pointer flex items-center gap-[5px] mt-[-15px] bg-red-500 w-max px-2 p-1 mx-auto rounded-md"
+          onClick={toggleMobileMenu}
+        >
+          {sidebar ? <button>Close</button> : ""}
           <div className="mt-[2px]">
-          <X size={10}/>
+            <X size={10} />
           </div>
         </div>
       </div>
