@@ -209,7 +209,7 @@ const MobileMenuItems = ({ sideBarToggle, sidebar, toggleMobileMenu, mobileMenu}
           >
             <User />
           </div>
-          {sidebar ? (
+          {sidebar && mobileMenu ? (
             <div>
               <h4 className="font-semibold">Rahul Meena</h4>
               <span className="text-[12px] text-gray-400">
@@ -220,12 +220,14 @@ const MobileMenuItems = ({ sideBarToggle, sidebar, toggleMobileMenu, mobileMenu}
             ""
           )}
         </div>
-        <div className="cursor-pointer flex items-center gap-[5px] mt-[-15px] bg-red-500 w-max px-2 mx-auto rounded-md"
+        <div className="text-[12px] cursor-pointer flex items-center gap-[5px] mt-[-15px] bg-red-500 w-max px-2 p-1 mx-auto rounded-md"
         onClick={toggleMobileMenu}>
-          <button>
+          {sidebar ? <button>
             Close
-          </button>
-          <X size={15}/>
+          </button> : ""}
+          <div className="mt-[2px]">
+          <X size={10}/>
+          </div>
         </div>
       </div>
     </div>

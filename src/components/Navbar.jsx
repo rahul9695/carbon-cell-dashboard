@@ -35,10 +35,10 @@ const Navbar = ({sidebar, sideBarToggle}) => {
           >
             <AlignJustify />
       </div>
-
-      {mobileMenu ? (<div className="fixed top-0 right-0 h-screen">
+      <div className={`${mobileMenu ? "w-[250px]" : "w-0"} ${!sidebar ? "w-[50px]" : ""} duration-300 fixed top-0 right-0 h-screen`}>
         <MobileMenuItems sidebar={sidebar} sideBarToggle={sideBarToggle} mobileMenu={mobileMenu} toggleMobileMenu={toggleMobileMenu}/>
-      </div>) : ""}
+      </div>
+      {/* {mobileMenu ? () : ""} */}
     </div>
   );
 };
