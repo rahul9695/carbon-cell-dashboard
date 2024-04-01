@@ -1,10 +1,7 @@
 ## Demo Link
 https://carbon-cell.netlify.app/
 
-# Carbon Cell Dashboard Project
-
-This dashboard project provides a comprehensive visualization of data using various technologies and tools. It offers insights into different aspects of the data through interactive charts and features.
-
+# Carbon Cell User Dashboard
 ## Technologies Used
 
 ### Frontend
