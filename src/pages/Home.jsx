@@ -87,7 +87,7 @@ const Home = () => {
       <div className="flex relative w-[80%] flex-col p-4 grow text-white">
         {/* Navbar */}
         <div className={`${sidebar ? "md:hidden" : "flex"}`}>
-          <Navbar sideBarToggle={sideBarToggle} />
+          <Navbar sidebar={sidebar} sideBarToggle={sideBarToggle} />
         </div>
         {/* User Intro */}
         <div className="flex justify-between items-center">

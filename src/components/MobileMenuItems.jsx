@@ -15,11 +15,12 @@ import {
   Settings,
   User,
   Wallet,
+  X,
 } from "lucide-react";
 import React from "react";
 import carbonCellLogo from "../assets/carbonCellLogo.png";
 
-const Sidebar = ({ sideBarToggle, sidebar }) => {
+const MobileMenuItems = ({ sideBarToggle, sidebar, toggleMobileMenu, mobileMenu}) => {
   const [activeItem, setActiveItem] = useState("home");
 
   const handleItemClick = (itemName) => {
@@ -27,7 +28,7 @@ const Sidebar = ({ sideBarToggle, sidebar }) => {
   };
 
   return (
-    <div className="w-full h-screen sticky top-0 bg-gray-600 rounded-r-xl p-2 flex flex-col justify-between">
+    <div className="w-full h-screen sticky top-0 bg-gray-600 rounded-l-xl p-2 flex flex-col justify-between">
       <div className="flex flex-col gap-[10px]">
         <div
           className={`flex items-center ${
@@ -41,11 +42,20 @@ const Sidebar = ({ sideBarToggle, sidebar }) => {
           ) : (
             ""
           )}
-          <span className={`cursor-pointer bg-gray-700 rounded-full p-1 duration-500 ${!sidebar ? "rotate-180" : ""}`} onClick={sideBarToggle}>
-            <ArrowLeft size={20}/>
+          <span
+            className={`cursor-pointer bg-gray-700 rounded-full p-1 duration-500 ${
+              !sidebar ? "rotate-180" : ""
+            }`}
+            onClick={sideBarToggle}
+          >
+            <ArrowLeft size={20} />
           </span>
         </div>
-        <div className="flex items-center bg-gray-300 rounded-md p-2 mt-2">
+        <div
+          className={`flex ${
+            !sidebar ? "justify-center" : ""
+          } items-center bg-gray-300 rounded-md p-2 mt-`}
+        >
           <Search size={20} />
           {sidebar ? (
             <input
@@ -59,7 +69,9 @@ const Sidebar = ({ sideBarToggle, sidebar }) => {
         </div>
         <div className="mt-4 flex flex-col px-1 text-white gap-[2px]">
           <div
-            className={`flex items-center gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
+            className={`flex items-center ${
+              !sidebar ? "justify-center" : ""
+            } gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
               activeItem === "home"
                 ? "text-green-400 font-bold bg-gray-700"
                 : ""
@@ -70,7 +82,9 @@ const Sidebar = ({ sideBarToggle, sidebar }) => {
             {sidebar ? <span className="">Home</span> : ""}
           </div>
           <div
-            className={`flex align-items gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
+            className={`flex align-items ${
+              !sidebar ? "justify-center" : ""
+            } gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
               activeItem === "organization"
                 ? "text-green-400 font-bold bg-gray-700"
                 : ""
@@ -81,7 +95,9 @@ const Sidebar = ({ sideBarToggle, sidebar }) => {
             {sidebar ? <span className="">Organization</span> : ""}
           </div>
           <div
-            className={`flex align-items gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
+            className={`flex align-items ${
+              !sidebar ? "justify-center" : ""
+            } gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
               activeItem === "assets"
                 ? "text-green-400 font-bold bg-gray-700"
                 : ""
@@ -92,7 +108,9 @@ const Sidebar = ({ sideBarToggle, sidebar }) => {
             {sidebar ? <span className="">Assets</span> : ""}{" "}
           </div>
           <div
-            className={`flex align-items gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
+            className={`flex align-items ${
+              !sidebar ? "justify-center" : ""
+            } gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
               activeItem === "trade"
                 ? "text-green-400 font-bold bg-gray-700"
                 : ""
@@ -103,7 +121,9 @@ const Sidebar = ({ sideBarToggle, sidebar }) => {
             {sidebar ? <span className="">Trade</span> : ""}
           </div>
           <div
-            className={`flex align-items gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
+            className={`flex align-items ${
+              !sidebar ? "justify-center" : ""
+            } gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
               activeItem === "history"
                 ? "text-green-400 font-bold bg-gray-700"
                 : ""
@@ -114,7 +134,9 @@ const Sidebar = ({ sideBarToggle, sidebar }) => {
             {sidebar ? <span className="">History</span> : ""}{" "}
           </div>
           <div
-            className={`flex align-items gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
+            className={`flex align-items ${
+              !sidebar ? "justify-center" : ""
+            } gap-[10px] hover:bg-gray-700 p-1 rounded-md cursor-pointer ${
               activeItem === "wallet"
                 ? "text-green-400 font-bold bg-gray-700"
                 : ""
@@ -175,7 +197,11 @@ const Sidebar = ({ sideBarToggle, sidebar }) => {
             {sidebar ? <span className="">Settings</span> : ""}
           </div>
         </div>
-        <div className={`flex items-center justify-center gap-[10px] ${sidebar ? "bg-gray-500" : ""} p-3 rounded-lg cursor-pointer`}>
+        <div
+          className={`flex items-center justify-center gap-[10px] ${
+            sidebar ? "bg-gray-500" : ""
+          } p-3 rounded-lg cursor-pointer`}
+        >
           <div
             className={`${
               sidebar ? "min-w-10 min-h-10" : "min-w-7 min-h-7"
@@ -194,9 +220,16 @@ const Sidebar = ({ sideBarToggle, sidebar }) => {
             ""
           )}
         </div>
+        <div className="cursor-pointer flex items-center gap-[5px] mt-[-15px] bg-red-500 w-max px-2 mx-auto rounded-md"
+        onClick={toggleMobileMenu}>
+          <button>
+            Close
+          </button>
+          <X size={15}/>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Sidebar;
+export default MobileMenuItems;
